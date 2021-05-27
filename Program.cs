@@ -10,8 +10,8 @@ namespace AddressBookLINQ
             // UC 1 Create a new table
             AddressBookRec addressBookTable = new AddressBookRec();
             //addressBookTable.GetAllContacts();
-            addressBookTable.EditExistingContact("Ekta", "Kumbhare", "PhoneNumber", "9921670015");
-
+            //addressBookTable.EditExistingContact("Ekta", "Kumbhare", "PhoneNumber", "9921670015");//UC4
+            addressBookTable.DeleteContact("Ekta", "Kumbhare"); //UC5
             Console.ReadLine();
         }
     }
