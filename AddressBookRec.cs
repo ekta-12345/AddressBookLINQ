@@ -32,21 +32,38 @@ namespace AddressBookLINQ
 
         public void GetAllContacts()
         {
-            Console.WriteLine("\n\n");
-            foreach (DataRow dr in table.AsEnumerable())
+            try
             {
-                Console.WriteLine("\n\n");
-                Console.WriteLine("FirstName:- " + dr.Field<string>("firstName"));
-                Console.WriteLine("LastName:- " + dr.Field<string>("lastName"));
-                Console.WriteLine("Address:- " + dr.Field<string>("address"));
-                Console.WriteLine("City:- " + dr.Field<string>("city"));
-                Console.WriteLine("State:- " + dr.Field<string>("state"));
-                Console.WriteLine("Zip:- " + dr.Field<string>("zip"));
-                Console.WriteLine("PhoneNumber:- " + dr.Field<string>("phoneNumber"));
-                Console.WriteLine("Email:- " + dr.Field<string>("eMail"));
+
+                Console.WriteLine("\n");
+                foreach (DataRow dr in table.AsEnumerable())
+                {
+                    Console.WriteLine("\n");
+                    Console.WriteLine("FirstName:- " + dr.Field<string>("firstName"));
+                    Console.WriteLine("LastName:- " + dr.Field<string>("lastName"));
+                    Console.WriteLine("Address:- " + dr.Field<string>("address"));
+                    Console.WriteLine("City:- " + dr.Field<string>("city"));
+                    Console.WriteLine("State:- " + dr.Field<string>("state"));
+                    Console.WriteLine("Zip:- " + dr.Field<string>("zip"));
+                    Console.WriteLine("PhoneNumber:- " + dr.Field<string>("phoneNumber"));
+                    Console.WriteLine("Email:- " + dr.Field<string>("eMail"));
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.HelpLink);
             }
 
         }
+        //UC4: Ability to edit existing contact person using their name
+         
+        public void EditExistingContact(string firstName, string lastName, string column, string newValue)
+        {
+            DataRow contact = table.Select("FirstName = '" + firstName + "' and LastName = '" + lastName + "'").FirstOrDefault();
+            contact[column] = newValue;
+            Console.WriteLine("Record successfully Edit");
+            GetAllContacts();
 
+        }
     }
 }
