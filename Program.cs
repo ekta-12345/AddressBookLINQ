@@ -12,7 +12,8 @@ namespace AddressBookLINQ
             //addressBookTable.GetAllContacts();
             //addressBookTable.EditExistingContact("Ekta", "Kumbhare", "PhoneNumber", "9921670015");//UC4
             //addressBookTable.DeleteContact("Ekta", "Kumbhare"); //UC5
-            addressBookTable.RetrieveByCityOrState("Pune", "Delhi"); //UC6
+            //addressBookTable.RetrieveByCityOrState("Pune", "Delhi"); //UC6
+            addressBookTable.CountByCityOrState("Pune", "Maharashtra");//UC7
             Console.ReadLine();
         }
     }
